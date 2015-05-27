@@ -34,18 +34,23 @@
 #ifndef GTEST_SAMPLES_SAMPLE4_H_
 #define GTEST_SAMPLES_SAMPLE4_H_
 
+
+// 단순하게 증가만 하는 카운터
 // A simple monotonic counter.
 class Counter {
  private:
   int counter_;
 
  public:
+  // 0 으로 시작하는 카운터를 만든다.
   // Creates a counter that starts at 0.
   Counter() : counter_(0) {}
 
+  // 현재 카운터의 값을 리턴하고, 값을 증가시킨다.
   // Returns the current counter value, and increments it.
   int Increment();
 
+  // STDOUT 으로 현재 카운터 값을 출력한다.
   // Prints the current counter value to STDOUT.
   void Print() const;
 };

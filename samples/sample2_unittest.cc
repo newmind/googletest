@@ -67,7 +67,7 @@ TEST(MyString, DefaultConstructor) {
   //   static_cast<const char *>(NULL)
   //
   // gcc 3.4 에는 warning 이 뜰 것이다. EXPECT_EQ 가 실패에 대한 출력을 
-  // 하기 위해서는 매개변수들의 타입을 알아야 한다. NULL 은 0 으로 정의되어 
+  // 하기 위해서는 인자값의 타입을 알아야 한다. NULL 은 0 으로 정의되어 
   // 있기 때문에 컴파일러는 int 형 포맷을 사용할 것이다. 하지만 gcc 는 
   // NULL 을 int 가 아닌 포인터로만 다루기 때문에 경고가 뜬다.
   // in this assertion, it will generate a warning on gcc 3.4.  The

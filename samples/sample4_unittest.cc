@@ -32,10 +32,12 @@
 #include "gtest/gtest.h"
 #include "sample4.h"
 
+// Increment() 함수를 테스트 한다.
 // Tests the Increment() method.
 TEST(Counter, Increment) {
   Counter c;
 
+  // EXPECT_EQ() 는 인자값들을 한번만 평가한다, 즉 부작용이 있을수 있다. 
   // EXPECT_EQ() evaluates its arguments exactly once, so they
   // can have side effects.
 

@@ -32,9 +32,12 @@
 // Author: wan@google.com (Zhanyong Wan)
 
 
+// 이번 예제에서는, Google Test 의 고급 기능인 test fixture 대해 설명한다.
 // In this example, we use a more advanced feature of Google Test called
 // test fixture.
 //
+// test fixture 는 테스트 케이스의 모든 테스트가 공유하여 사용할 객체나 
+// 함수들을 모아 놓은 곳이다.
 // A test fixture is a place to hold objects and functions shared by
 // all tests in a test case.  Using a test fixture avoids duplicating
 // the test code necessary to initialize and cleanup those common
@@ -43,11 +46,18 @@
 //
 // <TechnicalDetails>
 //
+// 테스트들을 코드 공유 관점에만 test fixture 를 공유한다. 데이터 공유는
+// 하지 않는다. 각 테스트은 새로운 fixture 를 할당받게 된다. 하나의 
+// 테스트에서 변경된 데이터가 다른 테스트로 넘어갈 거란 생각은 하지 마라.
+// 나쁜 생각이다.
 // The tests share the test fixture in the sense of code sharing, not
 // data sharing.  Each test is given its own fresh copy of the
 // fixture.  You cannot expect the data modified by one test to be
 // passed on to another test, which is a bad idea.
 //
+// 이렇게 디자인한 이유는 테스트들이 독립적이어야하고 반복가능해야 하기 
+// 때문이다. 특히, 테스트는 다른 테스트의 실패로 인한 영향을 받으면 안된다.
+// 
 // The reason for this design is that tests should be independent and
 // repeatable.  In particular, a test should not fail as the result of
 // another test's failure.  If one test depends on info produced by

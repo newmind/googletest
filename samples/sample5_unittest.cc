@@ -29,13 +29,20 @@
 //
 // Author: wan@google.com (Zhanyong Wan)
 
+
+// 이 예제는 test fixture 를 상속 받는 sub-fixture 를 이용하여
+// 여러 테스트에서 text fixture 를 재사용 하는 방법을 알려준다. 
 // This sample teaches how to reuse a test fixture in multiple test
 // cases by deriving sub-fixtures from it.
 //
+// test fixture 를 정의할때, 이 fixture 에서 사용할 테스트 케이스의
+// 이름도 명시한다. 그러므로, test fixture 은 오직 하나의 테스트 
+// 케이스에서만 사용된다.
 // When you define a test fixture, you specify the name of the test
 // case that will use this fixture.  Therefore, a test fixture can
 // be used by only one test case.
 //
+// 
 // Sometimes, more than one test cases may want to use the same or
 // slightly different test fixtures.  For example, you may want to
 // make sure that all tests for a GUI library don't leak important

@@ -48,8 +48,10 @@
 #include "sample2.h"
 #include "gtest/gtest.h"
 
+// 이 예제에서는, 간단한 문자열을 다루는 MyString 클래스를 테스트 한다.
 // In this example, we test the MyString class (a simple string).
 
+// 기본생성자를 테스트 한다.
 // Tests the default c'tor.
 TEST(MyString, DefaultConstructor) {
   const MyString s;
@@ -89,6 +91,7 @@ TEST(MyString, DefaultConstructor) {
 
 const char kHelloString[] = "Hello, world!";
 
+// C 문자열을 받는 생성자를 테스트 한다.
 // Tests the c'tor that accepts a C string.
 TEST(MyString, ConstructorFromCString) {
   const MyString s(kHelloString);
@@ -97,6 +100,7 @@ TEST(MyString, ConstructorFromCString) {
             s.Length());
 }
 
+// 복사생성자를 테스트 한다.
 // Tests the copy c'tor.
 TEST(MyString, CopyConstructor) {
   const MyString s1(kHelloString);
@@ -104,6 +108,7 @@ TEST(MyString, CopyConstructor) {
   EXPECT_EQ(0, strcmp(s2.c_string(), kHelloString));
 }
 
+// Set 함수를 테스트 한다.
 // Tests the Set method.
 TEST(MyString, Set) {
   MyString s;
@@ -111,11 +116,14 @@ TEST(MyString, Set) {
   s.Set(kHelloString);
   EXPECT_EQ(0, strcmp(s.c_string(), kHelloString));
 
+  // 입력으로 들어온 포인터가 객체에 이미 존재하는 것과 동일할 때에도
+  // Set 은 동작해야 한다.
   // Set should work when the input pointer is the same as the one
   // already in the MyString object.
   s.Set(s.c_string());
   EXPECT_EQ(0, strcmp(s.c_string(), kHelloString));
 
+  // MyString 을 NULL 로 설정할수 있나?
   // Can we set the MyString to NULL?
   s.Set(NULL);
   EXPECT_STREQ(NULL, s.c_string());

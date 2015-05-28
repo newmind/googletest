@@ -154,6 +154,7 @@ class QueueTest : public testing::Test {
 // 기본생성자를 테스트한다.
 // Tests the default c'tor.
 TEST_F(QueueTest, DefaultConstructor) {
+  // test fixture 에 있는 데이터를 여기에서 접근할 수 있다.
   // You can access data in the test fixture here.
   EXPECT_EQ(0u, q0_.Size());
 }
